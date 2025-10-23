@@ -195,7 +195,7 @@ class Xroof_Hero_Widget_1 extends Widget_Base
 		);
 		$this->register_subtitle_style_controls('hero__subtitle');
 		$this->register_text_style_controls('hero-title', 'hero__title', 'Title');
-		$this->register_text_style_controls('hero-title', 'hero__title--highlight', 'Highlight Text');
+		$this->register_text_style_controls('hero-title-highlight', 'hero__title--highlight', 'Highlight Text');
 		$this->add_control(
 			'highlight-color',
 			[
@@ -217,7 +217,7 @@ class Xroof_Hero_Widget_1 extends Widget_Base
 			]
 		);
 		$this->register_button_style_controls('hero-btn', 'hero__btn', 'Hero Button 1');
-		$this->register_button_style_controls('hero-btn-ppn', 'hero__btn-phn', 'Hero Button 2');
+		$this->register_button_style_controls('hero-btn-phn', 'hero__btn-phn', 'Hero Button 2');
 		$this->end_controls_section();
 
 		// Form Styles
@@ -399,7 +399,7 @@ class Xroof_Hero_Widget_1 extends Widget_Base
 			]
 		);
 
-		$this->add_background_controls('hero_bg_image', 'hero--style-1', 'Hero Background');
+		$this->add_background_controls('hero_bg_image_1xxx', 'hero--style-1', 'Hero Background');
 		$this->end_controls_section();
 	}
 

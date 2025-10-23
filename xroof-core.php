@@ -29,7 +29,8 @@ if (!defined('ABSPATH'))
 include_once('include/core-function.php');
 include_once('include/project-post-type.php');
 include_once('include/services-post-type.php');
-require_once __DIR__ . '/include/Traits/Xroof_Controls_Trait.php';
+include_once('include/class-ocdi-importer.php');
+require_once __DIR__ . '/include/Traits/Xroof_Controls_Trait.php'; 
 
 
 final class Xroof_Core
@@ -126,7 +127,7 @@ final class Xroof_Core
 		$message = sprintf(
 			/* translators: 1: Plugin name 2: Elementor */
 			esc_html__('"%1$s" requires "%2$s" to be installed and activated.', 'elementor-hello-world'),
-			'<strong>' . esc_html__('Elementor Hello World', 'elementor-hello-world') . '</strong>',
+			'<strong>' . esc_html__('Xroof Core', 'elementor-hello-world') . '</strong>',
 			'<strong>' . esc_html__('Elementor', 'elementor-hello-world') . '</strong>'
 		);
 

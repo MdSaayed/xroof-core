@@ -221,7 +221,7 @@ class Xroof_Header_Two_Widget extends Widget_Base
                         <?php
                         wp_nav_menu(
                             array(
-                                'theme_location' => 'menu-two',
+                                'theme_location' => 'main-menu',
                                 'menu_class' => 'nav__menu',
                                 'menu_id' => '',
                                 'container' => '',

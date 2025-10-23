@@ -40,7 +40,7 @@ trait Xroof_Controls_Trait
         $this->add_control($id, $args);
     }
 
-    protected function register_spacing_controls($id_prefix = 'spacing', $class_name)
+    protected function register_spacing_controls($id_prefix = 'spacing', $class_name='')
     {
         $selector = '.' . $class_name;
 
@@ -414,6 +414,8 @@ trait Xroof_Controls_Trait
         );
     }
 
+  
+  
     protected function register_button_content_controls($id = 'btn', $selector = 'btn', $label = 'Button')
     {
         $selector = ltrim($selector, '.');
