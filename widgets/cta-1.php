@@ -81,12 +81,40 @@ class Xroof_CTA_Widget_1 extends Widget_Base
             ]
         );
         $this->add_control(
+            'cta-button-link-1',
+            [
+                'label' => esc_html__('Link', 'textdomain'),
+                'type' => \Elementor\Controls_Manager::URL,
+                'options' => ['url', 'is_external', 'nofollow'],
+                'default' => [
+                    'url' => '',
+                    'is_external' => true,
+                    'nofollow' => true,
+                ],
+                'label_block' => true,
+            ]
+        );
+        $this->add_control(
             'cta-button-text-2',
             [
                 'label' => esc_html__('Button 2 Text', 'xroof'),
                 'type' => \Elementor\Controls_Manager::TEXT,
                 'default' => esc_html__('+1 281 590 272', 'xroof'),
                 'placeholder' => esc_html__('Type your button here', 'xroof'),
+            ]
+        );
+        $this->add_control(
+            'cta-button-link-2',
+            [
+                'label' => esc_html__('Link', 'textdomain'),
+                'type' => \Elementor\Controls_Manager::URL,
+                'options' => ['url', 'is_external', 'nofollow'],
+                'default' => [
+                    'url' => '',
+                    'is_external' => true,
+                    'nofollow' => true,
+                ],
+                'label_block' => true,
             ]
         );
         $this->end_controls_section();
@@ -332,7 +360,7 @@ class Xroof_CTA_Widget_1 extends Widget_Base
                 <?php endif; ?>
 
                 <div class="d-flex flex-wrap gap-4">
-                    <a href="./contact.html" class="footer__cta-btn btn-icon-right-secondary">Book An Appointment
+                    <a <?php echo xroof_get_link_attribute($settings['cta-button-link-1']); ?> class="footer__cta-btn btn-icon-right-secondary">Book An Appointment
                         <svg width="40" height="4" viewBox="0 0 10 7" fill="none">
                             <path
                                 d="M9.07926 2.38846C9.15803 2.13084 9.01303 1.85814 8.75541 1.77938L4.55719 0.495857C4.29957 0.417094 4.02687 0.562088 3.94811 0.819712C3.86934 1.07734 4.01434 1.35003 4.27196 1.42879L8.00371 2.5697L6.8628 6.30145C6.78404 6.55908 6.92903 6.83177 7.18666 6.91054C7.44428 6.9893 7.71697 6.8443 7.79574 6.58668L9.07926 2.38846ZM8.61279 2.24585L8.38379 1.81516L0.362471 6.08018L0.591471 6.51086L0.820471 6.94155L8.84179 2.67654L8.61279 2.24585Z"
@@ -340,7 +368,7 @@ class Xroof_CTA_Widget_1 extends Widget_Base
                         </svg>
                     </a>
 
-                    <a href="tel:+1281590272" class="footer__cta-btn footer__cta-btn--primary"> +1 281 590 272
+                    <a <?php echo xroof_get_link_attribute($settings['cta-button-link-2']); ?> class="footer__cta-btn footer__cta-btn--primary"> +1 281 590 272
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
                             <path
                                 d="M13.5944 9.969L11.7298 8.10437C11.0639 7.43844 9.93176 7.70484 9.66539 8.57053C9.46561 9.1699 8.79967 9.50287 8.20033 9.36965C6.86846 9.03669 5.07043 7.30525 4.73746 5.90679C4.53768 5.30742 4.93724 4.64148 5.53659 4.44173C6.4023 4.17535 6.66868 3.04326 6.00274 2.37732L4.13812 0.512702C3.60537 0.0465471 2.80625 0.0465471 2.34009 0.512702L1.07481 1.77798C-0.190465 3.10985 1.208 6.63932 4.3379 9.76922C7.4678 12.8991 10.9973 14.3642 12.3291 13.0323L13.5944 11.767C14.0606 11.2343 14.0606 10.4352 13.5944 9.969Z"

@@ -28,6 +28,7 @@ if (!defined('ABSPATH'))
 
 include_once('include/core-function.php');
 include_once('include/project-post-type.php');
+include_once('include/custom-widget/widgets.php');
 include_once('include/services-post-type.php');
 include_once('include/class-ocdi-importer.php');
 require_once __DIR__ . '/include/Traits/Xroof_Controls_Trait.php'; 

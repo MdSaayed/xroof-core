@@ -490,7 +490,7 @@ class Xroof_Footer_Widget_3 extends Widget_Base
                                             class="footer__gallery-img">
                                     <?php endif; ?>
                                     <?php if (!empty($item['footer_image_social_link']['url'])): ?>
-                                        <a <?php xroof_get_link_attribute($item['footer_image_social_link']); ?>
+                                        <a <?php echo xroof_get_link_attribute($item['footer_image_social_link']); ?>
                                             class="footer__gallery-icon">
                                             <?php echo $this->render_svg($item['footer_social_icon']['url']); ?>
                                         </a>
