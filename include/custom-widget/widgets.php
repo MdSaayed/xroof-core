@@ -26,7 +26,7 @@ class Xroof_Newsletter_Widget extends WP_Widget
         }
 
         if (!empty($instance['desc'])) {
-            echo '<p class="footer__newsletter-text body-text mb-4">' . esc_html($instance['desc']) . '</p>';
+            echo '<p class="footer__newsletter-text body-text mb-8 mb-xl-12 mb-xxl-20">' . esc_html($instance['desc']) . '</p>';
         }
         ?>
 
@@ -97,8 +97,8 @@ class Xroof_Recent_Posts_Widget extends WP_Widget
         $order = !empty($instance['order']) && in_array(strtoupper($instance['order']), array('ASC', 'DESC')) ? strtoupper($instance['order']) : 'DESC';
 
         // Widget title
-        echo '<div class="sidebar__posts mt-6 mt-xl-8">';
-        echo '<h3 class="sidebar__subtitle mb-2 mb-xl-4">' . esc_html($title) . '</h3>';
+        echo '<div class="sidebar__posts">';
+        echo '<h3 class="sidebar__title mb-2 mb-xl-4">' . esc_html($title) . '</h3>';
 
         // Query recent posts
         $recent_posts = new WP_Query(array(
@@ -228,12 +228,12 @@ class Xroof_Services_List_Widget extends WP_Widget
         ?>
         <div class="sidebar__services">
             <?php if (!empty($title)): ?>
-                <h2 class="sidebar__title pb-6 pb-xl-8 mt-6 mt-xl-8">
+                <h2 class="sidebar__title ">
                     <?php echo esc_html($title); ?> :
                 </h2>
             <?php endif; ?>
 
-            <ul class="sidebar__list pt-6 pt-xl-8">
+            <ul class="sidebar__list">
                 <?php if ($query->have_posts()): ?>
                     <?php while ($query->have_posts()):
                         $query->the_post(); ?>
@@ -330,7 +330,7 @@ class Xroof_Appointment_Card_Widget extends WP_Widget
             !empty($instance['phone_number'])
         ):
             ?>
-            <div class="sidebar__appointment-card mt-6 mt-xl-8" data-bg-img="<?php echo esc_url($instance['background_image']); ?>">
+            <div class="sidebar__appointment-card" data-bg-img="<?php echo esc_url($instance['background_image']); ?>">
                 <div class="appointment-card__body">
                     <h2 class="appointment-card__heading mb-4">
                         <?php echo esc_html($instance['heading']); ?>
@@ -342,7 +342,7 @@ class Xroof_Appointment_Card_Widget extends WP_Widget
                         <!-- <?php echo xroof_kses($instance['description']); ?> -->
                     </p>
 
-                    <div class="appointment-card__actions mt-6 mt-xl-8">
+                    <div class="appointment-card__actions">
                         <a href="<?php echo esc_url($instance['button_url']); ?>" class="appointment-card__btn btn btn-primary">
                             <?php echo esc_html($instance['button_text']); ?>
                         </a>
@@ -489,15 +489,15 @@ class Xroof_Info_Widget extends WP_Widget
 
         echo xroof_kses($args['before_widget']);
         ?>
-        <div class="sidebar__services mt-6 mt-xl-8 py-6 py-xl-8">
+        <div class="sidebar__services py-6 py-xl-8">
             <?php if (!empty($title)): ?>
-                <h2 class="sidebar__title pb-6 pb-xl-8 mt-6 mt-xl-8">
+                <h2 class="sidebar__title ">
                     <?php echo esc_html($title); ?>
                 </h2>
             <?php endif; ?>
 
             <?php if (!empty($items)): ?>
-                <ul class="sidebar__list pt-6 pt-xl-8">
+                <ul class="sidebar__list">
                     <?php foreach ($items as $item): ?>
                         <li class="sidebar__item"><?php echo esc_html($item); ?></li>
                     <?php endforeach; ?>
@@ -579,11 +579,11 @@ class Xroof_Project_Details_Widget extends WP_Widget
         ?>
 
         <div class="sidebar__project-details mb-6 mb-xl-8">
-            <h2 class="sidebar__title pb-6 pb-xl-8">
+            <h2 class="sidebar__title ">
                 <?php echo esc_html__('Project details :', 'xroof'); ?>
             </h2>
 
-            <ul class="project-details mt-6 mt-xl-8">
+            <ul class="project-details">
 
                 <?php if (!empty($client_name)): ?>
                     <li class="project-details__item">
@@ -702,7 +702,7 @@ class Xroof_Photo_Gallery_Widget extends WP_Widget
 
         echo xroof_kses($args['before_widget']); ?>
 
-        <div class="sidebar__gallery mt-6 mt-xl-8">
+        <div class="sidebar__gallery">
             <h3 class="sidebar__subtitle mb-4 mb-xl-8"><?php echo esc_html($title); ?></h3>
 
             <div class="gallery">

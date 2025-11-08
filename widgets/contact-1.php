@@ -342,7 +342,7 @@ class Xroof_Contact_Widget_1 extends Widget_Base
 
                                             <div class="info-card__content">
                                                 <?php if ($item['information_item_link_text']): ?>
-                                                    <a href="tel:<?php echo esc_url($item['information_item_link']['url']); ?>"
+                                                    <a href="<?php echo esc_html($item['information_item_link']['url']); ?>"
                                                         class="info-card__link"><?php echo esc_html($item['information_item_link_text']); ?></a>
                                                 <?php endif; ?>
                                                 <?php if (!empty($item['information_item_text'])): ?>

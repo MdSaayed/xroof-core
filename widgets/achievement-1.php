@@ -221,7 +221,7 @@ class Xroof_Achievement_Widget_1 extends Widget_Base
         $this->register_text_style_controls('achievement-title', 'achievement__title', 'Title');
         $this->register_text_style_controls('achievement-desc', 'achievement__desc', 'Description');
         $this->add_control(
-             'achievement-btn-style',
+            'achievement-btn-style',
             [
                 'type' => Controls_Manager::HEADING,
                 'label' => sprintf(__('Button', 'xroof')),
@@ -229,7 +229,7 @@ class Xroof_Achievement_Widget_1 extends Widget_Base
             ]
         );
         $this->add_control(
-             'achievement-btn-divider',
+            'achievement-btn-divider',
             [
                 'type' => Controls_Manager::DIVIDER,
                 'style' => 'thick',
@@ -286,7 +286,7 @@ class Xroof_Achievement_Widget_1 extends Widget_Base
                             <div class="achievement__video">
                                 <div class="achievement__video-thumb-wrap position-relative">
                                     <a href="<?php echo esc_url($settings['achievement-video-link']['url']); ?>"
-                                        class="achievement__video-link glightbox">
+                                        class="achievement__video-link glightbox" data-glightbox="type: video">
                                         <?php
                                         if (!empty($settings['achievement-video-icon']['value'])) {
                                             Icons_Manager::render_icon(
@@ -352,8 +352,8 @@ class Xroof_Achievement_Widget_1 extends Widget_Base
                                     ?>
                                     <div class="achievement__stat">
                                         <h3 class="achievement__stat-number" stat-data-start="0"
-                                            stat-data-end="<?php echo esc_attr($stat_number); ?>" data-duration="3000" data-format="full"
-                                            data-suffix="<?php echo esc_attr($stat_suffix); ?>">
+                                            stat-data-end="<?php echo esc_attr($stat_number); ?>" data-duration="3000"
+                                            data-format="full" data-suffix="<?php echo esc_attr($stat_suffix); ?>">
                                             <?php echo esc_html($stat_number . $stat_suffix); ?>
                                         </h3>
                                         <h3 class="achievement__stat-text">
@@ -362,7 +362,7 @@ class Xroof_Achievement_Widget_1 extends Widget_Base
                                     </div>
                                     <?php
                                 }
-                                echo '</div>'; 
+                                echo '</div>';
                             }
                             ?>
                             <?php $this->render_button('achievement-btn', 'achievement__btn'); ?>

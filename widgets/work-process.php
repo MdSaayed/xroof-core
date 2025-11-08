@@ -91,7 +91,7 @@ class Xroof_Work_Process_Widget extends Widget_Base
                 'type' => \Elementor\Controls_Manager::TEXT,
                 'default' => esc_html__('Enter Card Number', 'xroof'),
                 'placeholder' => esc_html__('Enter your card number', 'xroof'),
-                'label_block' => false,
+                'label_block' => true,
             ]
         );
         $repeater->add_control(
@@ -101,7 +101,7 @@ class Xroof_Work_Process_Widget extends Widget_Base
                 'type' => \Elementor\Controls_Manager::TEXT,
                 'default' => esc_html__('Your title here', 'xroof'),
                 'placeholder' => esc_html__('Enter your title here', 'xroof'),
-                'label_block' => false,
+                'label_block' => true,
             ]
         );
         $repeater->add_control(
@@ -111,7 +111,7 @@ class Xroof_Work_Process_Widget extends Widget_Base
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
                 'default' => esc_html__('Your card subtitle', 'xroof'),
                 'placeholder' => esc_html__('Enter your subtitle here', 'xroof'),
-                'label_block' => false,
+                'label_block' => true,
             ]
         );
         $repeater->add_control(
@@ -121,31 +121,32 @@ class Xroof_Work_Process_Widget extends Widget_Base
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
                 'default' => esc_html__('Your card description', 'xroof'),
                 'placeholder' => esc_html__('Enter your description here', 'xroof'),
-                'label_block' => false,
-            ]
-        );
-        $this->add_control(
-            'step_card_link',
-            [
-                'label' => esc_html__('Card Button Link', 'xroof'),
-                'type' => \Elementor\Controls_Manager::URL,
-                'placeholder' => esc_html__('#', 'xroof'),
-                'default' => [
-                    'url' => '',
-                    'is_external' => false,
-                    'nofollow' => false,
-                ],
-                'show_external' => true,
+                'label_block' => true,
             ]
         );
         $repeater->add_control(
             'step_card_link_text',
             [
                 'label' => esc_html__('Card Link Text', 'xroof'),
-                'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'type' => \Elementor\Controls_Manager::TEXT,
                 'default' => esc_html__('Read More', 'xroof'),
                 'placeholder' => esc_html__('Enter your link text here', 'xroof'),
-                'label_block' => false,
+                'label_block' => true,
+            ]
+        );
+        $repeater->add_control(
+            'step_card_link',
+            [
+                'label' => esc_html__('Card Button Link', 'xroof'),
+                'type' => \Elementor\Controls_Manager::URL,
+                'placeholder' => esc_html__('#', 'xroof'),
+                'default' => [
+                    'url' => '#',
+                    'is_external' => false,
+                    'nofollow' => false,
+                ],
+                'show_external' => true,
+                'label_block' => true,
             ]
         );
         $this->add_control(
