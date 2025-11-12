@@ -140,7 +140,7 @@ class Xroof_Testimonials_Widget_2 extends Widget_Base
                 'default' => [
                     [
                         'testimonials_author_img' => [
-                            'url' => get_template_directory_uri() . '/assets/img/testimonials/testimonials-author-1.png',
+                            'url' => \Elementor\Utils::get_placeholder_image_src(),
                         ],
                         'testimonials_rating' => esc_html__(4, 'xroof'),
                         'testimonials_author_name' => esc_html__('Nadia Islam', 'xroof'),
@@ -149,7 +149,7 @@ class Xroof_Testimonials_Widget_2 extends Widget_Base
                     ],
                     [
                         'testimonials_author_img' => [
-                            'url' => get_template_directory_uri() . '/assets/img/testimonials/testimonials-author-2.png',
+                            'url' => \Elementor\Utils::get_placeholder_image_src(),
                         ],
                         'testimonials_rating' => esc_html__(3.5, 'xroof'),
                         'testimonials_author_name' => esc_html__('Arman Haque', 'xroof'),
@@ -158,7 +158,7 @@ class Xroof_Testimonials_Widget_2 extends Widget_Base
                     ],
                     [
                         'testimonials_author_img' => [
-                            'url' => get_template_directory_uri() . '/assets/img/testimonials/testimonials-author-3.png',
+                            'url' => \Elementor\Utils::get_placeholder_image_src(),
                         ],
                         'testimonials_rating' => esc_html__(5, 'xroof'),
                         'testimonials_author_name' => esc_html__('Ayesha Karim', 'xroof'),

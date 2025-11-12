@@ -66,7 +66,7 @@ class Xroof_Hero_Widget_2 extends Widget_Base
 		]);
 		$this->add_universal_input_control('hero_img', 'Hero Image', 'media', [
 			'default' => [
-				'url' => get_template_directory_uri() . '/assets/img/hero/hero-slide-1.png',
+				'url' => \Elementor\Utils::get_placeholder_image_src(),
 			]
 		]);
 		$this->end_controls_section();
@@ -142,11 +142,11 @@ class Xroof_Hero_Widget_2 extends Widget_Base
 				'default' => [
 					[
 						'id' => 0,
-						'url' => get_template_directory_uri() . '/assets/img/hero/hero-bg-2.png',
+						'url' => \Elementor\Utils::get_placeholder_image_src(),
 					],
 					[
 						'id' => 0,
-						'url' => get_template_directory_uri() . '/assets/img/hero/hero-bg-3.png',
+						'url' => \Elementor\Utils::get_placeholder_image_src(),
 					],
 				],
 			]

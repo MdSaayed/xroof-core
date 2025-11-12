@@ -65,13 +65,13 @@ class Xroof_About_Widget_1 extends Widget_Base
 
 		$this->add_universal_input_control('about-main-image', 'About Main Image', 'media', [
 			'default' => [
-				'url' => get_template_directory_uri() . '/assets/img/about/about-img-1.png',
+				'url' => \Elementor\Utils::get_placeholder_image_src(),
 			],
 		]);
 
 		$this->add_universal_input_control('about-shape-image', 'Shape Image', 'media', [
 			'default' => [
-				'url' => get_template_directory_uri() . '/assets/img/shape/about-shape-1.png',
+				'url' => \Elementor\Utils::get_placeholder_image_src(),
 			],
 		]);
 

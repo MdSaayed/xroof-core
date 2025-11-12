@@ -57,7 +57,7 @@ class Xroof_Header_Three_Widget extends Widget_Base
                 'type' => \Elementor\Controls_Manager::MEDIA,
                 'description' => esc_html__('The oogo will be displayed at 140×50 pixels. Please upload an image with these dimensions for best results.', 'xroof'),
                 'default' => [
-                    'url' => get_template_directory_uri() . '/assets/img/global/logo.png',
+                    'url' => \Elementor\Utils::get_placeholder_image_src(),
                 ],
             ]
         );

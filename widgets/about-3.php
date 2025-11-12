@@ -166,23 +166,23 @@ class Xroof_About_Widget_3 extends Widget_Base
                 'default' => [
                     [
                         'id' => 0,
-                        'url' => get_template_directory_uri() . '/assets/img/global/avatar-1.png',
+                        'url' => \Elementor\Utils::get_placeholder_image_src(),
                     ],
                     [
                         'id' => 0,
-                        'url' => get_template_directory_uri() . '/assets/img/global/avatar-2.png',
+                        'url' => \Elementor\Utils::get_placeholder_image_src(),
                     ],
                     [
                         'id' => 0,
-                        'url' => get_template_directory_uri() . '/assets/img/global/avatar-3.png',
+                        'url' => \Elementor\Utils::get_placeholder_image_src(),
                     ],
                     [
                         'id' => 0,
-                        'url' => get_template_directory_uri() . '/assets/img/global/avatar-4.png',
+                        'url' => \Elementor\Utils::get_placeholder_image_src(),
                     ],
                     [
                         'id' => 0,
-                        'url' => get_template_directory_uri() . '/assets/img/global/avatar-5.png',
+                        'url' => \Elementor\Utils::get_placeholder_image_src(),
                     ],
                 ]
             ]
@@ -230,7 +230,7 @@ class Xroof_About_Widget_3 extends Widget_Base
                 'type' => \Elementor\Controls_Manager::MEDIA,
                 'description' => esc_html__('Recommended image dimensions: 410px × 300px.', 'xroof'),
                 'default' => [
-                    'url' => get_template_directory_uri() . '/assets/img/about/about-img-3.png',
+                    'url' => \Elementor\Utils::get_placeholder_image_src(),
                 ],
             ]
         );
@@ -241,7 +241,7 @@ class Xroof_About_Widget_3 extends Widget_Base
                 'type' => \Elementor\Controls_Manager::MEDIA,
                 'description' => esc_html__('Recommended image dimensions: 410px × 300px.', 'xroof'),
                 'default' => [
-                    'url' => get_template_directory_uri() . '/assets/img/about/about-img-4.png',
+                    'url' => \Elementor\Utils::get_placeholder_image_src(),
                 ],
             ]
         );
@@ -399,7 +399,8 @@ class Xroof_About_Widget_3 extends Widget_Base
                                         <div
                                             class="about__stat-top d-flex gap-2 flex-wrap justify-content-between align-items-center">
                                             <?php if (!empty($settings['about_stat_number'])): ?>
-                                                <h3 class="about__stat-number title-xl-white mb-4" stat-data-start="0" stat-data-end="99"
+                                                <h3 class="about__stat-number title-xl-white mb-4" stat-data-start="0"
+                                                    stat-data-end="99"
                                                     data-duration="<?php echo esc_attr($settings['about_stat_number']); ?>"
                                                     data-format="full"
                                                     data-suffix="<?php echo esc_html($settings['about_stat_suffix']); ?>">

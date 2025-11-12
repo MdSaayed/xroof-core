@@ -293,161 +293,136 @@ class Xroof_Services_List_Widget extends WP_Widget
 }
 
 // Appointment Card
-class Xroof_Appointment_Card_Widget extends WP_Widget
-{
-    public function __construct()
-    {
+class Xroof_Appointment_Card_Widget extends WP_Widget {
+
+    public function __construct() {
         parent::__construct(
             'xroof_appointment_card',
             esc_html__('Xroof Appointment Card', 'xroof'),
-            ['description' => esc_html__('Displays an appointment card with contact info', 'xroof')]
+            ['description' => esc_html__('Displays an appointment card with contact info.', 'xroof')]
         );
     }
 
-    public function widget($args, $instance)
-    {
-        if (!empty($args['before_widget'])) {
-            echo xroof_kses($args['before_widget']);
-        }
+    public function widget($args, $instance) {
+        echo isset($args['before_widget']) ? wp_kses_post($args['before_widget']) : '';
 
         $defaults = [
-            'background_image' => get_template_directory_uri() . '/assets/img/global/appointment-card-img.png',
-            'heading' => 'Need a Roofing Services',
-            'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus',
-            'button_text' => 'Book An Appointment',
-            'button_url' => home_url('/contact'),
-            'phone_number' => '+1234567890',
+            'background_image' => get_template_directory_uri() . '/assets/images/placeholder.png',
+            'heading'          => esc_html__('Need a Roofing Services', 'xroof'),
+            'description'      => esc_html__('We provide expert roofing solutions with quality materials, skilled workers.', 'xroof'),
+            'button_text'      => esc_html__('Book An Appointment', 'xroof'),
+            'button_url'       => '#',
+            'phone_number'     => '+1234567890',
         ];
 
         $instance = wp_parse_args((array) $instance, $defaults);
+        $bg_img = !empty($instance['background_image']) ? esc_url($instance['background_image']) : esc_url($defaults['background_image']);
+        ?>
+        <div class="sidebar__appointment-card" data-bg-img="<?php echo $bg_img; ?>">
+            <div class="appointment-card__body">
+                <?php if (!empty($instance['heading'])) : ?>
+                    <h2 class="appointment-card__heading mb-4"><?php echo esc_html($instance['heading']); ?></h2>
+                <?php endif; ?>
 
-        if (
-            !empty($instance['background_image']) &&
-            !empty($instance['heading']) &&
-            !empty($instance['description']) &&
-            !empty($instance['button_text']) &&
-            !empty($instance['button_url']) &&
-            !empty($instance['phone_number'])
-        ):
-            ?>
-            <div class="sidebar__appointment-card" data-bg-img="<?php echo esc_url($instance['background_image']); ?>">
-                <div class="appointment-card__body">
-                    <h2 class="appointment-card__heading mb-4">
-                        <?php echo esc_html($instance['heading']); ?>
-                    </h2>
+                <?php if (!empty($instance['description'])) : ?>
+                    <p class="appointment-card__description body-text"><?php echo esc_html($instance['description']); ?></p>
+                <?php endif; ?>
 
-                    <p class="appointment-card__description body-text">
-                        <?php echo esc_html($instance['description']); ?>
-                        <!-- OR use xroof_kses() if you want to allow limited HTML -->
-                        <!-- <?php echo xroof_kses($instance['description']); ?> -->
-                    </p>
-
-                    <div class="appointment-card__actions">
+                <div class="appointment-card__actions">
+                    <?php if (!empty($instance['button_text'])) : ?>
                         <a href="<?php echo esc_url($instance['button_url']); ?>" class="appointment-card__btn btn btn-primary">
                             <?php echo esc_html($instance['button_text']); ?>
                         </a>
+                    <?php endif; ?>
 
+                    <?php if (!empty($instance['phone_number'])) : ?>
                         <a href="tel:<?php echo esc_attr($instance['phone_number']); ?>"
-                            class="appointment-card__btn appointment-card__btn--phn"
-                            aria-label="<?php echo esc_attr__('Call Us', 'xroof'); ?>">
+                           class="appointment-card__btn appointment-card__btn--phn"
+                           aria-label="<?php esc_attr_e('Call Us', 'xroof'); ?>">
                             <svg width="21" height="21" viewBox="0 0 21 21" fill="none" aria-hidden="true">
-                                <path
-                                    d="M19.7529 15.604L16.956 12.8071C15.9571 11.8082 14.2589 12.2078 13.8594 13.5063C13.5597 14.4054 12.5608 14.9048 11.6618 14.705C9.66395 14.2055 6.96691 11.6084 6.46746 9.51069C6.16779 8.61164 6.76713 7.61273 7.66615 7.3131C8.96472 6.91354 9.36428 5.2154 8.36538 4.2165L5.56845 1.41957C4.76932 0.720333 3.57064 0.720333 2.87141 1.41957L0.973487 3.31748C-0.924431 5.31529 1.17327 10.6095 5.86812 15.3043C10.563 19.9992 15.8572 22.1968 17.855 20.199L19.7529 18.301C20.4522 17.5019 20.4522 16.3032 19.7529 15.604Z"
-                                    fill="#EE212B" />
+                                <path d="M19.7529 15.604L16.956 12.8071C15.9571 11.8082 14.2589 12.2078 13.8594 13.5063C13.5597 14.4054 12.5608 14.9048 11.6618 14.705C9.66395 14.2055 6.96691 11.6084 6.46746 9.51069C6.16779 8.61164 6.76713 7.61273 7.66615 7.3131C8.96472 6.91354 9.36428 5.2154 8.36538 4.2165L5.56845 1.41957C4.76932 0.720333 3.57064 0.720333 2.87141 1.41957L0.973487 3.31748C-0.924431 5.31529 1.17327 10.6095 5.86812 15.3043C10.563 19.9992 15.8572 22.1968 17.855 20.199L19.7529 18.301C20.4522 17.5019 20.4522 16.3032 19.7529 15.604Z" fill="#EE212B"/>
                             </svg>
                         </a>
-                    </div>
+                    <?php endif; ?>
                 </div>
             </div>
-            <?php
-        endif;
-
-        if (!empty($args['after_widget'])) {
-            echo xroof_kses($args['after_widget']);
-        }
+        </div>
+        <?php
+        echo isset($args['after_widget']) ? wp_kses_post($args['after_widget']) : '';
     }
 
-    public function form($instance)
-    {
+    public function form($instance) {
         $defaults = [
-            'background_image' => get_template_directory_uri() . '/assets/img/global/appointment-card-img.png',
-            'heading' => 'Need a Roofing Services',
-            'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus',
-            'button_text' => 'Book An Appointment',
-            'button_url' => home_url('/contact'),
-            'phone_number' => '+1234567890',
+            'background_image' => '',
+            'heading'          => esc_html__('Need a Roofing Services', 'xroof'),
+            'description'      => esc_html__('We provide expert roofing solutions with quality materials, skilled workers, and guaranteed long-lasting protection for your home.', 'xroof'),
+            'button_text'      => esc_html__('Book An Appointment', 'xroof'),
+            'button_url'       => '#',
+            'phone_number'     => '+1234567890',
         ];
-
         $instance = wp_parse_args((array) $instance, $defaults);
+        $field_id = $this->get_field_id('background_image');
+        $field_name = $this->get_field_name('background_image');
         ?>
         <p>
-            <label for="<?php echo esc_attr($this->get_field_id('heading')); ?>">
-                <?php esc_html_e('Heading:', 'xroof'); ?>
-            </label>
+            <label for="<?php echo esc_attr($this->get_field_id('heading')); ?>"><?php esc_html_e('Heading:', 'xroof'); ?></label>
             <input class="widefat" id="<?php echo esc_attr($this->get_field_id('heading')); ?>"
-                name="<?php echo esc_attr($this->get_field_name('heading')); ?>" type="text"
-                value="<?php echo esc_attr($instance['heading']); ?>">
+                   name="<?php echo esc_attr($this->get_field_name('heading')); ?>" type="text"
+                   value="<?php echo esc_attr($instance['heading']); ?>">
         </p>
 
         <p>
-            <label for="<?php echo esc_attr($this->get_field_id('description')); ?>">
-                <?php esc_html_e('Description:', 'xroof'); ?>
-            </label>
+            <label for="<?php echo esc_attr($this->get_field_id('description')); ?>"><?php esc_html_e('Description:', 'xroof'); ?></label>
             <textarea class="widefat" id="<?php echo esc_attr($this->get_field_id('description')); ?>"
-                name="<?php echo esc_attr($this->get_field_name('description')); ?>"><?php echo esc_textarea($instance['description']); ?></textarea>
+                      name="<?php echo esc_attr($this->get_field_name('description')); ?>"><?php echo esc_textarea($instance['description']); ?></textarea>
         </p>
 
         <p>
-            <label for="<?php echo esc_attr($this->get_field_id('button_text')); ?>">
-                <?php esc_html_e('Button Text:', 'xroof'); ?>
-            </label>
+            <label for="<?php echo esc_attr($this->get_field_id('button_text')); ?>"><?php esc_html_e('Button Text:', 'xroof'); ?></label>
             <input class="widefat" id="<?php echo esc_attr($this->get_field_id('button_text')); ?>"
-                name="<?php echo esc_attr($this->get_field_name('button_text')); ?>" type="text"
-                value="<?php echo esc_attr($instance['button_text']); ?>">
+                   name="<?php echo esc_attr($this->get_field_name('button_text')); ?>" type="text"
+                   value="<?php echo esc_attr($instance['button_text']); ?>">
         </p>
 
         <p>
-            <label for="<?php echo esc_attr($this->get_field_id('button_url')); ?>">
-                <?php esc_html_e('Button URL:', 'xroof'); ?>
-            </label>
+            <label for="<?php echo esc_attr($this->get_field_id('button_url')); ?>"><?php esc_html_e('Button URL:', 'xroof'); ?></label>
             <input class="widefat" id="<?php echo esc_attr($this->get_field_id('button_url')); ?>"
-                name="<?php echo esc_attr($this->get_field_name('button_url')); ?>" type="url"
-                value="<?php echo esc_url($instance['button_url']); ?>">
+                   name="<?php echo esc_attr($this->get_field_name('button_url')); ?>" type="text"
+                   value="<?php echo esc_attr($instance['button_url']); ?>">
         </p>
 
         <p>
-            <label for="<?php echo esc_attr($this->get_field_id('phone_number')); ?>">
-                <?php esc_html_e('Phone Number:', 'xroof'); ?>
-            </label>
+            <label for="<?php echo esc_attr($this->get_field_id('phone_number')); ?>"><?php esc_html_e('Phone Number:', 'xroof'); ?></label>
             <input class="widefat" id="<?php echo esc_attr($this->get_field_id('phone_number')); ?>"
-                name="<?php echo esc_attr($this->get_field_name('phone_number')); ?>" type="text"
-                value="<?php echo esc_attr($instance['phone_number']); ?>">
+                   name="<?php echo esc_attr($this->get_field_name('phone_number')); ?>" type="text"
+                   value="<?php echo esc_attr($instance['phone_number']); ?>">
         </p>
 
         <p>
-            <label for="<?php echo esc_attr($this->get_field_id('background_image')); ?>">
-                <?php esc_html_e('Background Image:', 'xroof'); ?>
-            </label>
-            <input class="widefat upload_image" id="<?php echo esc_attr($this->get_field_id('background_image')); ?>"
-                name="<?php echo esc_attr($this->get_field_name('background_image')); ?>" type="text"
-                value="<?php echo esc_url($instance['background_image']); ?>">
-            <button class="button select-image-button"><?php esc_html_e('Upload Image', 'xroof'); ?></button>
+            <label for="<?php echo esc_attr($field_id); ?>"><?php esc_html_e('Background Image:', 'xroof'); ?></label>
+            <input class="widefat upload_image_field" id="<?php echo esc_attr($field_id); ?>"
+                   name="<?php echo esc_attr($field_name); ?>" type="text"
+                   value="<?php echo esc_url($instance['background_image']); ?>">
+            <button type="button" class="button xroof-upload-image-btn" data-input="<?php echo esc_attr($field_id); ?>">
+                <?php esc_html_e('Upload Image', 'xroof'); ?>
+            </button>
         </p>
 
         <script>
             jQuery(document).ready(function ($) {
-                $('.select-image-button').on('click', function (e) {
+                $('body').on('click', '.xroof-upload-image-btn', function (e) {
                     e.preventDefault();
-                    let button = $(this);
-                    let input = button.prev('.upload_image');
-                    let frame = wp.media({
-                        title: '<?php esc_html_e('Select or Upload Image', 'xroof'); ?>',
-                        button: { text: '<?php esc_html_e('Use this image', 'xroof'); ?>' },
+                    var button = $(this);
+                    var inputID = button.data('input');
+                    var inputField = $('#' + inputID);
+                    var frame = wp.media({
+                        title: '<?php echo esc_js(__('Select or Upload Image', 'xroof')); ?>',
+                        button: { text: '<?php echo esc_js(__('Use this image', 'xroof')); ?>' },
                         multiple: false
                     });
                     frame.on('select', function () {
-                        let attachment = frame.state().get('selection').first().toJSON();
-                        input.val(attachment.url);
+                        var attachment = frame.state().get('selection').first().toJSON();
+                        inputField.val(attachment.url).trigger('change');
                     });
                     frame.open();
                 });
@@ -456,18 +431,23 @@ class Xroof_Appointment_Card_Widget extends WP_Widget
         <?php
     }
 
-    public function update($new_instance, $old_instance)
-    {
+    public function update($new_instance, $old_instance) {
         $instance = [];
         $instance['background_image'] = !empty($new_instance['background_image']) ? esc_url_raw($new_instance['background_image']) : '';
-        $instance['heading'] = !empty($new_instance['heading']) ? sanitize_text_field($new_instance['heading']) : '';
-        $instance['description'] = !empty($new_instance['description']) ? sanitize_textarea_field($new_instance['description']) : '';
-        $instance['button_text'] = !empty($new_instance['button_text']) ? sanitize_text_field($new_instance['button_text']) : '';
-        $instance['button_url'] = !empty($new_instance['button_url']) ? esc_url_raw($new_instance['button_url']) : '';
-        $instance['phone_number'] = !empty($new_instance['phone_number']) ? sanitize_text_field($new_instance['phone_number']) : '';
+        $instance['heading']          = !empty($new_instance['heading']) ? sanitize_text_field($new_instance['heading']) : '';
+        $instance['description']      = !empty($new_instance['description']) ? sanitize_textarea_field($new_instance['description']) : '';
+        $instance['button_text']      = !empty($new_instance['button_text']) ? sanitize_text_field($new_instance['button_text']) : '';
+
+        // Allow "#" as default
+        $url = trim($new_instance['button_url']);
+        $instance['button_url'] = ($url === '#' || $url === '') ? '#' : esc_url_raw($url);
+
+        $instance['phone_number']     = !empty($new_instance['phone_number']) ? sanitize_text_field($new_instance['phone_number']) : '';
         return $instance;
     }
 }
+
+
 
 // Info box
 class Xroof_Info_Widget extends WP_Widget
@@ -854,105 +834,110 @@ class Xroof_Photo_Gallery_Widget extends WP_Widget
     }
 }
 
-class Xroof_Footer_Social_Widget extends WP_Widget {
+class Xroof_Footer_Social_Widget extends WP_Widget
+{
 
-	public function __construct() {
-		parent::__construct(
-			'xroof_footer_social_widget',
-			__( 'Xroof: Footer Social Icons', 'xroof' ),
-			array(
-				'description' => __( 'Display social media icons in the footer.', 'xroof' ),
-			)
-		);
-	}
+    public function __construct()
+    {
+        parent::__construct(
+            'xroof_footer_social_widget',
+            __('Xroof: Footer Social Icons', 'xroof'),
+            array(
+                'description' => __('Display social media icons in the footer.', 'xroof'),
+            )
+        );
+    }
 
-	public function widget( $args, $instance ) {
-		echo $args['before_widget'];
+    public function widget($args, $instance)
+    {
+        echo $args['before_widget'];
 
-		$facebook  = ! empty( $instance['facebook'] ) ? esc_url( $instance['facebook'] ) : '';
-		$x_icon    = ! empty( $instance['x_icon'] ) ? esc_url( $instance['x_icon'] ) : '';
-		$dribbble  = ! empty( $instance['dribbble'] ) ? esc_url( $instance['dribbble'] ) : '';
-		$instagram = ! empty( $instance['instagram'] ) ? esc_url( $instance['instagram'] ) : '';
+        $facebook = !empty($instance['facebook']) ? esc_url($instance['facebook']) : '';
+        $x_icon = !empty($instance['x_icon']) ? esc_url($instance['x_icon']) : '';
+        $dribbble = !empty($instance['dribbble']) ? esc_url($instance['dribbble']) : '';
+        $instagram = !empty($instance['instagram']) ? esc_url($instance['instagram']) : '';
 
-		if ( $facebook || $x_icon || $dribbble || $instagram ) : ?>
-			<div class="footer__social d-flex flex-wrap gap-3 gap-xxl-4 mt-10">
-				<?php if ( $x_icon ) : ?>
-					<a href="<?php echo $x_icon; ?>" class="footer__social-link" target="_blank" rel="noopener">
-						<svg width="18" height="18" viewBox="0 0 26 26" fill="none">
-							<path
-								d="M15.3078 11.1708L24.338 0.392578H22.1981L14.3572 9.75115L8.09459 0.392578H0.87146L10.3417 14.5444L0.87146 25.847H3.01147L11.2917 15.964L17.9055 25.847H25.1286L15.3072 11.1708H15.3078ZM12.3767 14.6691L11.4172 13.2599L3.78254 2.0467H7.06947L13.2307 11.0961L14.1903 12.5053L22.1992 24.2681H18.9122L12.3767 14.6696V14.6691Z"
-								fill="white" />
-						</svg>
-					</a>
-				<?php endif; ?>
+        if ($facebook || $x_icon || $dribbble || $instagram): ?>
+            <div class="footer__social d-flex flex-wrap gap-3 gap-xxl-4 mt-10">
+                <?php if ($x_icon): ?>
+                    <a href="<?php echo $x_icon; ?>" class="footer__social-link" target="_blank" rel="noopener">
+                        <svg width="18" height="18" viewBox="0 0 26 26" fill="none">
+                            <path
+                                d="M15.3078 11.1708L24.338 0.392578H22.1981L14.3572 9.75115L8.09459 0.392578H0.87146L10.3417 14.5444L0.87146 25.847H3.01147L11.2917 15.964L17.9055 25.847H25.1286L15.3072 11.1708H15.3078ZM12.3767 14.6691L11.4172 13.2599L3.78254 2.0467H7.06947L13.2307 11.0961L14.1903 12.5053L22.1992 24.2681H18.9122L12.3767 14.6696V14.6691Z"
+                                fill="white" />
+                        </svg>
+                    </a>
+                <?php endif; ?>
 
-				<?php if ( $facebook ) : ?>
-					<a href="<?php echo $facebook; ?>" class="footer__social-link" target="_blank" rel="noopener">
-						<svg width="18" height="18" viewBox="0 0 26 26" fill="none">
-							<path
-								d="M14.92 25.4753V14.1681H18.7138L19.283 9.76021H14.92V6.94641C14.92 5.67061 15.2728 4.80118 17.1043 4.80118L19.4365 4.80022V0.857636C19.0332 0.805223 17.6488 0.685059 16.0374 0.685059C12.6726 0.685059 10.369 2.73888 10.369 6.50985V9.76021H6.56372V14.1681H10.369V25.4753H14.92Z"
-								fill="white" />
-						</svg>
-					</a>
-				<?php endif; ?>
+                <?php if ($facebook): ?>
+                    <a href="<?php echo $facebook; ?>" class="footer__social-link" target="_blank" rel="noopener">
+                        <svg width="18" height="18" viewBox="0 0 26 26" fill="none">
+                            <path
+                                d="M14.92 25.4753V14.1681H18.7138L19.283 9.76021H14.92V6.94641C14.92 5.67061 15.2728 4.80118 17.1043 4.80118L19.4365 4.80022V0.857636C19.0332 0.805223 17.6488 0.685059 16.0374 0.685059C12.6726 0.685059 10.369 2.73888 10.369 6.50985V9.76021H6.56372V14.1681H10.369V25.4753H14.92Z"
+                                fill="white" />
+                        </svg>
+                    </a>
+                <?php endif; ?>
 
-				<?php if ( $dribbble ) : ?>
-					<a href="<?php echo $dribbble; ?>" class="footer__social-link" target="_blank" rel="noopener">
-						<svg width="20" height="20" fill="#fff" viewBox="0 0 256 256">
-							<path
-								d="M86.26123,32.74414a103.85849,103.85849,0,0,1,100.148,9.25537,153.22442,153.22442,0,0,1-44.543,40.48438A169.26114,169.26114,0,0,0,86.26123,32.74414Zm41.31543,57.28955A152.978,152.978,0,0,0,69.4624,42.09863a104.382,104.382,0,0,0-41.543,57.561A151.8095,151.8095,0,0,0,64,103.99805,151.0488,151.0488,0,0,0,127.57666,90.03369Zm104.22119,31.65772a103.76547,103.76547,0,0,0-32.88965-69.689,169.34119,169.34119,0,0,1-48.39453,43.94092,167.29388,167.29388,0,0,1,13.542,29.89746,168.13983,168.13983,0,0,1,67.74219-4.14941Zm-63.33008,19.53125a167.82141,167.82141,0,0,1,4.44922,38.46972,168.65237,168.65237,0,0,1-6.084,44.77832,104.24218,104.24218,0,0,0,64.68213-86.65185,152.38875,152.38875,0,0,0-63.04737,3.40381Zm-19.64062-10.45459a151.39932,151.39932,0,0,0-12.3916-27.20557A166.974,166.974,0,0,1,64,119.99805a167.82812,167.82812,0,0,1-39.23633-4.6377,103.89032,103.89032,0,0,0,35.958,91.88281A168.9649,168.9649,0,0,1,148.82715,130.76807ZM73.78369,216.72021a103.93363,103.93363,0,0,0,74.58447,13.27051,152.66635,152.66635,0,0,0,8.54883-50.29834,151.825,151.825,0,0,0-3.73291-33.46289A152.89185,152.89185,0,0,0,73.78369,216.72021Z">
-							</path>
-						</svg>
-					</a>
-				<?php endif; ?>
+                <?php if ($dribbble): ?>
+                    <a href="<?php echo $dribbble; ?>" class="footer__social-link" target="_blank" rel="noopener">
+                        <svg width="20" height="20" fill="#fff" viewBox="0 0 256 256">
+                            <path
+                                d="M86.26123,32.74414a103.85849,103.85849,0,0,1,100.148,9.25537,153.22442,153.22442,0,0,1-44.543,40.48438A169.26114,169.26114,0,0,0,86.26123,32.74414Zm41.31543,57.28955A152.978,152.978,0,0,0,69.4624,42.09863a104.382,104.382,0,0,0-41.543,57.561A151.8095,151.8095,0,0,0,64,103.99805,151.0488,151.0488,0,0,0,127.57666,90.03369Zm104.22119,31.65772a103.76547,103.76547,0,0,0-32.88965-69.689,169.34119,169.34119,0,0,1-48.39453,43.94092,167.29388,167.29388,0,0,1,13.542,29.89746,168.13983,168.13983,0,0,1,67.74219-4.14941Zm-63.33008,19.53125a167.82141,167.82141,0,0,1,4.44922,38.46972,168.65237,168.65237,0,0,1-6.084,44.77832,104.24218,104.24218,0,0,0,64.68213-86.65185,152.38875,152.38875,0,0,0-63.04737,3.40381Zm-19.64062-10.45459a151.39932,151.39932,0,0,0-12.3916-27.20557A166.974,166.974,0,0,1,64,119.99805a167.82812,167.82812,0,0,1-39.23633-4.6377,103.89032,103.89032,0,0,0,35.958,91.88281A168.9649,168.9649,0,0,1,148.82715,130.76807ZM73.78369,216.72021a103.93363,103.93363,0,0,0,74.58447,13.27051,152.66635,152.66635,0,0,0,8.54883-50.29834,151.825,151.825,0,0,0-3.73291-33.46289A152.89185,152.89185,0,0,0,73.78369,216.72021Z">
+                            </path>
+                        </svg>
+                    </a>
+                <?php endif; ?>
 
-				<?php if ( $instagram ) : ?>
-					<a href="<?php echo $instagram; ?>" class="footer__social-link" target="_blank" rel="noopener">
-						<svg width="20" height="20" viewBox="0 0 26 26" fill="none">
-							<path
-								d="M18.6847 0.272461H7.31545C3.61524 0.272461 0.60498 3.36337 0.60498 7.16273V18.8368C0.60498 22.6359 3.61524 25.7268 7.31545 25.7268H18.6849C22.3849 25.7268 25.3951 22.6359 25.3951 18.8368V7.16273C25.3951 3.36337 22.3849 0.272461 18.6847 0.272461ZM23.9418 18.8368C23.9418 21.8131 21.5835 24.2346 18.6847 24.2346H7.31545C4.4166 24.2346 2.05829 21.8131 2.05829 18.8368V7.16273C2.05829 4.1862 4.4166 1.76471 7.31545 1.76471H18.6849C21.5835 1.76471 23.9418 4.1862 23.9418 7.16273V18.8368Z"
-								fill="white" />
-							<path
-								d="M13 6.04004C9.26239 6.04004 6.22168 9.16222 6.22168 13C6.22168 16.8378 9.26239 19.96 13 19.96C16.7377 19.96 19.7784 16.8378 19.7784 13C19.7784 9.16222 16.7377 6.04004 13 6.04004ZM13 18.4678C10.0639 18.4678 7.67498 16.015 7.67498 13C7.67498 9.98524 10.0639 7.53228 13 7.53228C15.9364 7.53228 18.3251 9.98524 18.3251 13C18.3251 16.015 15.9364 18.4678 13 18.4678Z"
-								fill="white" />
-						</svg>
-					</a>
-				<?php endif; ?>
-			</div>
-		<?php
-		endif;
+                <?php if ($instagram): ?>
+                    <a href="<?php echo $instagram; ?>" class="footer__social-link" target="_blank" rel="noopener">
+                        <svg width="20" height="20" viewBox="0 0 26 26" fill="none">
+                            <path
+                                d="M18.6847 0.272461H7.31545C3.61524 0.272461 0.60498 3.36337 0.60498 7.16273V18.8368C0.60498 22.6359 3.61524 25.7268 7.31545 25.7268H18.6849C22.3849 25.7268 25.3951 22.6359 25.3951 18.8368V7.16273C25.3951 3.36337 22.3849 0.272461 18.6847 0.272461ZM23.9418 18.8368C23.9418 21.8131 21.5835 24.2346 18.6847 24.2346H7.31545C4.4166 24.2346 2.05829 21.8131 2.05829 18.8368V7.16273C2.05829 4.1862 4.4166 1.76471 7.31545 1.76471H18.6849C21.5835 1.76471 23.9418 4.1862 23.9418 7.16273V18.8368Z"
+                                fill="white" />
+                            <path
+                                d="M13 6.04004C9.26239 6.04004 6.22168 9.16222 6.22168 13C6.22168 16.8378 9.26239 19.96 13 19.96C16.7377 19.96 19.7784 16.8378 19.7784 13C19.7784 9.16222 16.7377 6.04004 13 6.04004ZM13 18.4678C10.0639 18.4678 7.67498 16.015 7.67498 13C7.67498 9.98524 10.0639 7.53228 13 7.53228C15.9364 7.53228 18.3251 9.98524 18.3251 13C18.3251 16.015 15.9364 18.4678 13 18.4678Z"
+                                fill="white" />
+                        </svg>
+                    </a>
+                <?php endif; ?>
+            </div>
+            <?php
+        endif;
 
-		echo $args['after_widget'];
-	}
+        echo $args['after_widget'];
+    }
 
-	public function form( $instance ) {
-		$fields = array(
-			'x_icon'    => __( 'X (Twitter) URL:', 'xroof' ),
-			'facebook'  => __( 'Facebook URL:', 'xroof' ),
-			'dribbble'  => __( 'Dribbble URL:', 'xroof' ),
-			'instagram' => __( 'Instagram URL:', 'xroof' ),
-		);
+    public function form($instance)
+    {
+        $fields = array(
+            'x_icon' => __('X (Twitter) URL:', 'xroof'),
+            'facebook' => __('Facebook URL:', 'xroof'),
+            'dribbble' => __('Dribbble URL:', 'xroof'),
+            'instagram' => __('Instagram URL:', 'xroof'),
+        );
 
-		foreach ( $fields as $field => $label ) :
-			$value = ! empty( $instance[ $field ] ) ? esc_url( $instance[ $field ] ) : '';
-			?>
-			<p>
-				<label for="<?php echo esc_attr( $this->get_field_id( $field ) ); ?>"><?php echo esc_html( $label ); ?></label>
-				<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( $field ) ); ?>"
-					   name="<?php echo esc_attr( $this->get_field_name( $field ) ); ?>"
-					   type="url" value="<?php echo esc_attr( $value ); ?>">
-			</p>
-		<?php
-		endforeach;
-	}
+        foreach ($fields as $field => $label):
+            $value = !empty($instance[$field]) ? esc_url($instance[$field]) : '';
+            ?>
+            <p>
+                <label for="<?php echo esc_attr($this->get_field_id($field)); ?>"><?php echo esc_html($label); ?></label>
+                <input class="widefat" id="<?php echo esc_attr($this->get_field_id($field)); ?>"
+                    name="<?php echo esc_attr($this->get_field_name($field)); ?>" type="url"
+                    value="<?php echo esc_attr($value); ?>">
+            </p>
+            <?php
+        endforeach;
+    }
 
-	public function update( $new_instance, $old_instance ) {
-		$instance = array();
-		foreach ( $new_instance as $key => $value ) {
-			$instance[ $key ] = ! empty( $value ) ? esc_url_raw( $value ) : '';
-		}
-		return $instance;
-	}
+    public function update($new_instance, $old_instance)
+    {
+        $instance = array();
+        foreach ($new_instance as $key => $value) {
+            $instance[$key] = !empty($value) ? esc_url_raw($value) : '';
+        }
+        return $instance;
+    }
 }
 
 

@@ -58,7 +58,7 @@ class Xroof_Achievement_Widget_1 extends Widget_Base
                 'label' => esc_html__('Main Image', 'xroof'),
                 'type' => \Elementor\Controls_Manager::MEDIA,
                 'default' => [
-                    'url' => get_template_directory_uri() . '/assets/img/achievement/achievement-1.png',
+                    'url' => \Elementor\Utils::get_placeholder_image_src(),
                 ],
             ]
         );
@@ -77,7 +77,7 @@ class Xroof_Achievement_Widget_1 extends Widget_Base
                 'label' => esc_html__('Video Thumbnail', 'xroof'),
                 'type' => \Elementor\Controls_Manager::MEDIA,
                 'default' => [
-                    'url' => get_template_directory_uri() . '/assets/img/achievement/video-thumb.png',
+                    'url' => \Elementor\Utils::get_placeholder_image_src(),
                 ],
             ]
         );
@@ -250,6 +250,25 @@ class Xroof_Achievement_Widget_1 extends Widget_Base
         $this->register_text_style_controls('stat-text', 'achievement__stat-text', 'Text');
         $this->end_controls_section();
 
+        $this->start_controls_section(
+            'achievement-bg-image-style',
+            [
+                'label' => __('Background Image', 'xroof'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+        $this->add_control(
+            'achievement-bg-image',
+            [
+                'label' => esc_html__('Choose Image', 'textdomain'),
+                'type' => \Elementor\Controls_Manager::MEDIA,
+                'default' => [
+                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                ],
+            ]
+        );
+        $this->end_controls_section();
+
     }
 
     // Render Here
@@ -259,7 +278,7 @@ class Xroof_Achievement_Widget_1 extends Widget_Base
         ?>
 
         <section class="achievement achievement--style-1"
-            data-bg-img="<?php echo get_template_directory_uri(); ?>/assets/img/achievement/achievement-bg-1.png">
+            data-bg-img="<?php echo $settings['achievement-bg-image']['url'] ?>">
             <div class="achievement__container container">
                 <div class="row g-5 align-items-center">
                     <div class="col col-12 col-x2l-6">

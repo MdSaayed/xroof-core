@@ -160,7 +160,7 @@ class Xroof_Work_Process_Widget_2 extends Widget_Base
                 'label' => esc_html__('Choose Image', 'xroof'),
                 'type' => \Elementor\Controls_Manager::MEDIA,
                 'default' => [
-                    'url' => get_template_directory_uri() . '/assets/img/global/work-process-1.png',
+                     'url' => \Elementor\Utils::get_placeholder_image_src(),
                 ],
             ]
         );

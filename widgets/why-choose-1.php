@@ -195,7 +195,7 @@ class Xroof_Why_Choose_Us_Widget extends \Elementor\Widget_Base
         $this->add_background_controls('why-choose-us-bg', 'why-choose-us--style-1', 'Background', [
             'image' => [
                 'id' => 0,
-                'url' => get_template_directory_uri() . '/assets/img/global/why-choose-us-1.png',
+                'url' => \Elementor\Utils::get_placeholder_image_src(),
             ]
         ]);
 
@@ -216,7 +216,7 @@ class Xroof_Why_Choose_Us_Widget extends \Elementor\Widget_Base
         $this->add_background_controls('shape-background', 'why-choose-us__shape', 'Background', [
             'image' => [
                 'id' => 0,
-                'url' => get_template_directory_uri() . '/assets/img/shape/why-choose-us-1.png',
+                'url' => \Elementor\Utils::get_placeholder_image_src(),
             ]
         ]);
         $this->end_controls_section();

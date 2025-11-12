@@ -89,7 +89,7 @@ class Xroof_Testimonials_Widget_1 extends Widget_Base
                 'label' => esc_html__('Choose Image', 'xroof'),
                 'type' => \Elementor\Controls_Manager::MEDIA,
                 'default' => [
-                    'url' => get_template_directory_uri() . '/assets//img/testimonials/testimonials-author-1.png',
+                    'url' => \Elementor\Utils::get_placeholder_image_src(),
                 ],
             ]
         );
@@ -141,14 +141,14 @@ class Xroof_Testimonials_Widget_1 extends Widget_Base
                         'testimonials_author_role' => 'Retail Business Owner',
                         'testimonials_text' => 'The crew was efficient, knowledgeable, and courteous throughout the project. My roof was replaced seamlessly and has withstood strong winds flawlessly. They listened carefully to our requirements and transformed a difficult repair into an impressive, long-lasting result.',
                         'testimonials_rating' => '4.5',
-                        'testimonials_author_img' => ['url' => get_template_directory_uri() . '/assets//img/testimonials/testimonials-author-1.png'],
+                        'testimonials_author_img' => ['url' => \Elementor\Utils::get_placeholder_image_src(),],
                     ],
                     [
                         'testimonials_author_name' => 'Hafsa Begum',
                         'testimonials_author_role' => 'Cleaner',
                         'testimonials_text' => 'The team worked diligently, demonstrating great skill and professionalism from start to finish. My new roof was installed with precision and has already proven durable through heavy rain. They paid attention to every detail and turned a stressful situation into a smooth, reliable outcome.',
                         'testimonials_rating' => '5',
-                        'testimonials_author_img' => ['url' => get_template_directory_uri() . '/assets//img/testimonials/testimonials-author-2.png'],
+                        'testimonials_author_img' => ['url' => \Elementor\Utils::get_placeholder_image_src(),],
                     ],
                 ],
                 'title_field' => '{{{ testimonials_author_name }}}',
@@ -175,7 +175,7 @@ class Xroof_Testimonials_Widget_1 extends Widget_Base
                     ],
                     'image' => [
                         'default' => [
-                            'url' => get_template_directory_uri() . '/assets/img/testimonials/testimonials-bg-1.png',
+                            'url' => \Elementor\Utils::get_placeholder_image_src(),
                         ],
                     ],
                 ],
@@ -330,7 +330,7 @@ class Xroof_Testimonials_Widget_1 extends Widget_Base
                 </div>
             </div>
         </section>
-        
+
         <?php
     }
 }

@@ -248,7 +248,7 @@ class Xroof_Services_Widget extends \Elementor\Widget_Base
         $this->add_background_controls('services-top-bg', 'services__top', 'Services Top Background', [
             'image' => [
                 'id' => 0,
-                'url' => get_template_directory_uri() . '/assets/img/services/services-bg-1.png',
+                 'url' => \Elementor\Utils::get_placeholder_image_src(),
             ]
         ]);
         $this->end_controls_section();

@@ -139,28 +139,28 @@ class Xroof_Project_Slider_Widget extends Widget_Base
                 'default' => [
                     [
                         'project_card_image' => [
-                            'url' => get_template_directory_uri() . '/assets/img/project/project-img-1.jpg',
+                            'url' => \Elementor\Utils::get_placeholder_image_src(),
                         ],
                         'project_card_subtitle' => __('Residential Roofing', 'xroof'),
                         'project_card_title' => __('Heritage Heights Roof Replacement', 'xroof'),
                     ],
                     [
                         'project_card_image' => [
-                            'url' => get_template_directory_uri() . '/assets/img/project/project-img-2.jpg',
+                             'url' => \Elementor\Utils::get_placeholder_image_src(),
                         ],
                         'project_card_subtitle' => __('Commercial Roofing', 'xroof'),
                         'project_card_title' => __('Downtown Office Roof Installation', 'xroof'),
                     ],
                     [
                         'project_card_image' => [
-                            'url' => get_template_directory_uri() . '/assets/img/project/project-img-3.jpg',
+                             'url' => \Elementor\Utils::get_placeholder_image_src(),
                         ],
                         'project_card_subtitle' => __('Residential Roofing', 'xroof'),
                         'project_card_title' => __('Lakeview House Roof Renovation', 'xroof'),
                     ],
                     [
                         'project_card_image' => [
-                            'url' => get_template_directory_uri() . '/assets/img/project/project-img-1.jpg',
+                             'url' => \Elementor\Utils::get_placeholder_image_src(),
                         ],
                         'project_card_subtitle' => __('Industrial Roofing', 'xroof'),
                         'project_card_title' => __('Factory Roof Upgrade', 'xroof'),
@@ -287,7 +287,7 @@ class Xroof_Project_Slider_Widget extends Widget_Base
         $this->add_background_controls('project_section_bg', 'projects', 'Background', [
             'image' => [
                 'id' => 0,
-                'url' => get_template_directory_uri() . '/assets/img/project/project-bg-2.jpg',
+                 'url' => \Elementor\Utils::get_placeholder_image_src(),
             ]
         ]);
         $this->end_controls_section();

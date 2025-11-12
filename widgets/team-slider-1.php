@@ -177,35 +177,35 @@ class Xroof_Team_Slider_Widget_1 extends Widget_Base
                 'default' => [
                     [
                         'team_img' => [
-                            'url' => get_template_directory_uri() . '/assets/img/team/team-member-11.png',
+                             'url' => \Elementor\Utils::get_placeholder_image_src(),
                         ],
                         'team_name' => esc_html__('Michael Lopez', 'xroof'),
                         'team_role' => esc_html__('Maintenance Technician', 'xroof'),
                     ],
                     [
                         'team_img' => [
-                            'url' => get_template_directory_uri() . '/assets/img/team/team-member-12.png',
+                             'url' => \Elementor\Utils::get_placeholder_image_src(),
                         ],
                         'team_name' => esc_html__('Sophia Turner', 'xroof'),
                         'team_role' => esc_html__('Project Manager', 'xroof'),
                     ],
                     [
                         'team_img' => [
-                            'url' => get_template_directory_uri() . '/assets/img/team/team-member-13.png',
+                            'url' => \Elementor\Utils::get_placeholder_image_src(),
                         ],
                         'team_name' => esc_html__('David Kim', 'xroof'),
                         'team_role' => esc_html__('Lead Developer', 'xroof'),
                     ],
                     [
                         'team_img' => [
-                            'url' => get_template_directory_uri() . '/assets/img/team/team-member-14.png',
+                             'url' => \Elementor\Utils::get_placeholder_image_src(),
                         ],
                         'team_name' => esc_html__('Olivia Brown', 'xroof'),
                         'team_role' => esc_html__('UI/UX Designer', 'xroof'),
                     ],
                     [
                         'team_img' => [
-                            'url' => get_template_directory_uri() . '/assets/img/team/team-member-15.png',
+                             'url' => \Elementor\Utils::get_placeholder_image_src(),
                         ],
                         'team_name' => esc_html__('James Carter', 'xroof'),
                         'team_role' => esc_html__('Marketing Specialist', 'xroof'),

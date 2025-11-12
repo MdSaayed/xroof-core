@@ -152,15 +152,15 @@ class Xroof_Showcase_Widget extends Widget_Base
                         'projects_gallery' => [
                             [
                                 'id' => '',
-                                'url' => get_template_directory_uri() . '/assets/img/project/project-7.png',
+                                'url' => \Elementor\Utils::get_placeholder_image_src(),
                             ],
                             [
                                 'id' => '',
-                                'url' => get_template_directory_uri() . '/assets/img/project/project-8.png',
+                                'url' => \Elementor\Utils::get_placeholder_image_src(),
                             ],
                         ],
                         'projects_featured_image' => [
-                            'url' => get_template_directory_uri() . '/assets/img/project/project-10.png',
+                            'url' => \Elementor\Utils::get_placeholder_image_src(),
                         ],
                         'projects_featured_title' => esc_html__('Commercial Flat Roof Installation', 'xroof'),
                         'projects_featured_text' => esc_html__('A well-built flat roof is essential for protecting your commercial property and ensuring long-term performance.', 'xroof'),
@@ -169,15 +169,15 @@ class Xroof_Showcase_Widget extends Widget_Base
                         'projects_gallery' => [
                             [
                                 'id' => '',
-                                'url' => get_template_directory_uri() . '/assets/img/project/project-11.png',
+                                'url' => \Elementor\Utils::get_placeholder_image_src(),
                             ],
                             [
                                 'id' => '',
-                                'url' => get_template_directory_uri() . '/assets/img/project/project-12.png',
+                                'url' => \Elementor\Utils::get_placeholder_image_src(),
                             ],
                         ],
                         'projects_featured_image' => [
-                            'url' => get_template_directory_uri() . '/assets/img/project/project-9.png',
+                            'url' => \Elementor\Utils::get_placeholder_image_src(),
                         ],
                         'projects_featured_title' => esc_html__('Commercial Flat Roof Installation', 'xroof'),
                         'projects_featured_text' => esc_html__('A well-built flat roof is essential for protecting your commercial property and ensuring long-term performance.', 'xroof'),

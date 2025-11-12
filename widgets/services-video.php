@@ -121,7 +121,7 @@ class Xroof_Services_Video_Widget extends Widget_Base
                 'type' => \Elementor\Controls_Manager::URL,
                 'options' => ['url', 'is_external', 'nofollow'],
                 'default' => [
-                    'url' => get_template_directory_uri() . '/assets/img/services/services-video.mp4',
+                    'url' =>'https://www.w3schools.com/html/mov_bbb.mp4',
                     'is_external' => true,
                     'nofollow' => true,
                 ],

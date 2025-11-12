@@ -71,7 +71,7 @@ class Xroof_About_Widget_2 extends Widget_Base
                 'label' => esc_html__('About Image', 'xroof'),
                 'type' => \Elementor\Controls_Manager::MEDIA,
                 'default' => [
-                    'url' => get_template_directory_uri() . '/assets/img/about/about-img-2.png',
+                    'url' => \Elementor\Utils::get_placeholder_image_src(),
                 ],
             ]
         );

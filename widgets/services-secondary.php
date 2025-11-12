@@ -57,11 +57,11 @@ class Xroof_Services_Secondary_Widget_1 extends Widget_Base
                 'label' => esc_html__('Choose Image', 'xroof'),
                 'type' => \Elementor\Controls_Manager::MEDIA,
                 'default' => [
-                    'url' => get_template_directory_uri() . '/assets/svg/services-secondary-1.svg',
+                    'url' => \Elementor\Utils::get_placeholder_image_src(),
                 ],
             ]
         );
-        $repeater->add_control(
+        $repeater->add_control( 
             'services_card_title',
             [
                 'label' => esc_html__('Title', 'xroof'),
@@ -89,7 +89,7 @@ class Xroof_Services_Secondary_Widget_1 extends Widget_Base
                 'label' => esc_html__('Choose Image', 'xroof'),
                 'type' => \Elementor\Controls_Manager::MEDIA,
                 'default' => [
-                    'url' => get_template_directory_uri() . '/assets/img/services/services-1.png',
+                    'url' => \Elementor\Utils::get_placeholder_image_src(),
                 ],
             ]
         );
@@ -101,16 +101,16 @@ class Xroof_Services_Secondary_Widget_1 extends Widget_Base
                 'fields' => $repeater->get_controls(),
                 'default' => [
                     [
-                        'services_card_icon' => ['url' => get_template_directory_uri() . '/assets/svg/services-secondary-1.svg'],
+                        'services_card_icon' => ['url' => \Elementor\Utils::get_placeholder_image_src(),],
                         'services_card_title' => 'Emergency Roofing Services',
                         'services_card_number' => '+1 (219) - 5354665',
-                        'services_card_image' => ['url' => get_template_directory_uri() . '/assets/img/services/services-1.png'],
+                        'services_card_image' => ['url' => \Elementor\Utils::get_placeholder_image_src()],
                     ],
                     [
-                        'services_card_icon' => ['url' => get_template_directory_uri() . '/assets/svg/services-secondary-2.svg'],
+                        'services_card_icon' => ['url' => \Elementor\Utils::get_placeholder_image_src()],
                         'services_card_title' => 'Explore Our Roofing Services',
                         'services_card_number' => '+1 (219) - 5354665',
-                        'services_card_image' => ['url' => get_template_directory_uri() . '/assets/img/services/services-2.png'],
+                        'services_card_image' => ['url' => \Elementor\Utils::get_placeholder_image_src()],
                     ],
                 ],
                 'title_field' => '{{{ services_card_title }}}',
@@ -126,7 +126,7 @@ class Xroof_Services_Secondary_Widget_1 extends Widget_Base
                 'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
-        $this->register_spacing_controls('services-secondary','services__container');
+        $this->register_spacing_controls('services-secondary', 'services__container');
         $this->end_controls_section();
     }
 

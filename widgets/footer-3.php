@@ -66,7 +66,7 @@ class Xroof_Footer_Widget_3 extends Widget_Base
                 'label' => esc_html__('Image', 'textdomain'),
                 'type' => \Elementor\Controls_Manager::MEDIA,
                 'default' => [
-                    'url' => get_template_directory_uri() . '/assets/img/global/logo.png',
+                    'url' => \Elementor\Utils::get_placeholder_image_src(),
                 ],
             ]
         );
@@ -94,7 +94,7 @@ class Xroof_Footer_Widget_3 extends Widget_Base
                 'default' => [
                     [
                         'footer_image' => [
-                            'url' => get_template_directory_uri() . '/assets/img/footer/footer-img-1.png',
+                            'url' => \Elementor\Utils::get_placeholder_image_src(),
                         ],
                         'footer_social_icon' => [
                             'url' => get_template_directory_uri() . '/assets/svg/instagram.svg',
@@ -104,7 +104,7 @@ class Xroof_Footer_Widget_3 extends Widget_Base
                     ],
                     [
                         'footer_image' => [
-                            'url' => get_template_directory_uri() . '/assets/img/footer/footer-img-2.png',
+                            'url' => \Elementor\Utils::get_placeholder_image_src(),
                         ],
                         'footer_social_icon' => [
                             'url' => get_template_directory_uri() . '/assets/svg/instagram.svg',
@@ -114,7 +114,7 @@ class Xroof_Footer_Widget_3 extends Widget_Base
                     ],
                     [
                         'footer_image' => [
-                            'url' => get_template_directory_uri() . '/assets/img/footer/footer-img-3.png',
+                            'url' => \Elementor\Utils::get_placeholder_image_src(),
                         ],
                         'footer_social_icon' => [
                             'url' => get_template_directory_uri() . '/assets/svg/instagram.svg',
@@ -124,7 +124,7 @@ class Xroof_Footer_Widget_3 extends Widget_Base
                     ],
                     [
                         'footer_image' => [
-                            'url' => get_template_directory_uri() . '/assets/img/footer/footer-img-4.png',
+                            'url' => \Elementor\Utils::get_placeholder_image_src(),
                         ],
                         'footer_social_icon' => [
                             'url' => get_template_directory_uri() . '/assets/svg/instagram.svg',
@@ -134,7 +134,7 @@ class Xroof_Footer_Widget_3 extends Widget_Base
                     ],
                     [
                         'footer_image' => [
-                            'url' => get_template_directory_uri() . '/assets/img/footer/footer-img-5.png',
+                            'url' => \Elementor\Utils::get_placeholder_image_src(),
                         ],
                         'footer_social_icon' => [
                             'url' => get_template_directory_uri() . '/assets/svg/instagram.svg',
@@ -512,7 +512,8 @@ class Xroof_Footer_Widget_3 extends Widget_Base
                         <?php if (!empty($settings['footer_email'] || !empty($settings['footer_arrow_link']))): ?>
                             <div class="footer__cta-email">
                                 <?php if (!empty($settings['footer_email'])): ?>
-                                    <a href="mailto:<?php echo esc_attr($settings['footer_email']); ?>" class="footer__cta-link title-xxl">
+                                    <a href="mailto:<?php echo esc_attr($settings['footer_email']); ?>"
+                                        class="footer__cta-link title-xxl">
                                         <?php echo esc_html($settings['footer_email']); ?>
                                     </a>
                                 <?php endif; ?>

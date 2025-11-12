@@ -56,7 +56,7 @@ class Xroof_Footer_Widget_2 extends Widget_Base
                 'label' => esc_html__('Logo Image', 'textdomain'),
                 'type' => \Elementor\Controls_Manager::MEDIA,
                 'default' => [
-                    'url' => get_template_directory_uri() . '/assets/img/global/logo.png',
+                     'url' => \Elementor\Utils::get_placeholder_image_src(),
                 ],
             ]
         );

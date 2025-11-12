@@ -66,7 +66,7 @@ class Xroof_Hero_Widget_1 extends Widget_Base
 		]);
 		$this->add_universal_input_control('hero-arrow-image', 'Hero Arrow Image', 'media', [
 			'default' => [
-				'url' => get_template_directory_uri() . '/assets/img/shape/hero-1-arrow.png',
+				'url' => \Elementor\Utils::get_placeholder_image_src(),
 			]
 		]);
 		$this->end_controls_section();

@@ -90,7 +90,7 @@ class Xroof_Team_Widget_1 extends Widget_Base
                 'label' => esc_html__('Choose Image', 'xroof'),
                 'type' => \Elementor\Controls_Manager::MEDIA,
                 'default' => [
-                    'url' => get_template_directory_uri() . '/assets/img/team/team-member-1.png',
+                    'url' => \Elementor\Utils::get_placeholder_image_src(),
                 ],
             ]
         );
@@ -158,17 +158,17 @@ class Xroof_Team_Widget_1 extends Widget_Base
                     [
                         'team_member_title' => 'Aisha Rahman',
                         'team_member_role' => 'Home Cleaning Supervisor',
-                        'team_member_img' => ['url' => get_template_directory_uri() . '/assets/img/team/team-member-1.png'],
+                         'team_member_img' => ['url' => \Elementor\Utils::get_placeholder_image_src()],
                     ],
                     [
                         'team_member_title' => 'Hafsa Begum',
                         'team_member_role' => 'Cleaner',
-                        'team_member_img' => ['url' => get_template_directory_uri() . '/assets/img/team/team-member-2.png'],
+                         'team_member_img' => ['url' => \Elementor\Utils::get_placeholder_image_src()],
                     ],
                     [
                         'team_member_title' => 'Sayed Sarker',
                         'team_member_role' => 'Cleaner',
-                        'team_member_img' => ['url' => get_template_directory_uri() . '/assets/img/team/team-member-3.png'],
+                         'team_member_img' => ['url' => \Elementor\Utils::get_placeholder_image_src()],
                     ],
                 ],
                 'title_field' => '{{{ team_member_title }}}',

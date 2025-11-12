@@ -413,8 +413,6 @@ trait Xroof_Controls_Trait
             ]
         );
     }
-
-  
   
     protected function register_button_content_controls($id = 'btn', $selector = 'btn', $label = 'Button')
     {
@@ -966,23 +964,23 @@ trait Xroof_Controls_Trait
         }
 
         if ($btn_type === 'right') { ?>
-            <a <?php echo $this->get_render_attribute_string($id); ?>
-                class="btn btn-icon-right-primary <?php echo esc_attr($selector); ?>">
-                <?php echo esc_html($btn_text); ?>
-                <?php echo $icon_html; ?>
-            </a>
-        <?php } elseif ($btn_type === 'left') { ?>
-            <a <?php echo $this->get_render_attribute_string($id); ?>
-                class="btn btn-icon-left-primary <?php echo esc_attr($selector); ?>">
-                <?php echo $icon_html; ?>
-                <?php echo esc_html($btn_text); ?>
-            </a>
-        <?php } elseif ($btn_type === 'phone') { ?>
-            <a <?php echo $this->get_render_attribute_string($id); ?>
-                class="btn btn-phn-primary <?php echo esc_attr($selector); ?>">
-                <?php echo $icon_html; ?>
-            </a>
-        <?php }
+<a <?php echo $this->get_render_attribute_string($id); ?>
+    class="btn btn-icon-right-primary <?php echo esc_attr($selector); ?>">
+    <?php echo esc_html($btn_text); ?>
+    <?php echo $icon_html; ?>
+</a>
+<?php } elseif ($btn_type === 'left') { ?>
+<a <?php echo $this->get_render_attribute_string($id); ?>
+    class="btn btn-icon-left-primary <?php echo esc_attr($selector); ?>">
+    <?php echo $icon_html; ?>
+    <?php echo esc_html($btn_text); ?>
+</a>
+<?php } elseif ($btn_type === 'phone') { ?>
+<a <?php echo $this->get_render_attribute_string($id); ?>
+    class="btn btn-phn-primary <?php echo esc_attr($selector); ?>">
+    <?php echo $icon_html; ?>
+</a>
+<?php }
     }
 
     protected function render_subtitle($id = 'subtitle', $selector = 'subtitle')
@@ -991,8 +989,8 @@ trait Xroof_Controls_Trait
 
         if (!empty($settings['subtitle-text'])) {
             ?>
-            <div class="subtitle-wrap d-flex align-items-center mb-4 gap-4">
-                <?php
+<div class="subtitle-wrap d-flex align-items-center mb-4 gap-4">
+    <?php
                 if (!empty($settings['subtitle_icon']['value'])) {
                     Icons_Manager::render_icon(
                         $settings['subtitle_icon'],
@@ -1001,27 +999,14 @@ trait Xroof_Controls_Trait
                 }
                 if (!empty($settings['subtitle-text'])) {
                     ?>
-                    <p class="subtitle <?php echo esc_attr($selector); ?> mb-0">
-                        <?php echo esc_html($settings['subtitle-text']); ?>
-                    </p>
-                    <?php
+    <p class="subtitle <?php echo esc_attr($selector); ?> mb-0">
+        <?php echo esc_html($settings['subtitle-text']); ?>
+    </p>
+    <?php
                 }
                 ?>
-            </div>
-            <?php
+</div>
+<?php
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

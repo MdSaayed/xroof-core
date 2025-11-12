@@ -110,23 +110,23 @@ class Xroof_Hero_Widget_3 extends Widget_Base
 				'default' => [
 					[
 						'id' => 0,
-						'url' => get_template_directory_uri() . '/assets/img/global/avatar-1.png',
+						'url' => \Elementor\Utils::get_placeholder_image_src(),
 					],
 					[
 						'id' => 0,
-						'url' => get_template_directory_uri() . '/assets/img/global/avatar-2.png',
+						'url' => \Elementor\Utils::get_placeholder_image_src(),
 					],
 					[
 						'id' => 0,
-						'url' => get_template_directory_uri() . '/assets/img/global/avatar-3.png',
+						'url' => \Elementor\Utils::get_placeholder_image_src(),
 					],
 					[
 						'id' => 0,
-						'url' => get_template_directory_uri() . '/assets/img/global/avatar-4.png',
+						'url' => \Elementor\Utils::get_placeholder_image_src(),
 					],
 					[
 						'id' => 0,
-						'url' => get_template_directory_uri() . '/assets/img/global/avatar-5.png',
+						'url' => \Elementor\Utils::get_placeholder_image_src(),
 					],
 				],
 			]
@@ -221,7 +221,7 @@ class Xroof_Hero_Widget_3 extends Widget_Base
 				'description' => esc_html__('Recommended image size: 350 × 155 pixels.', 'xroof'),
 				'type' => \Elementor\Controls_Manager::MEDIA,
 				'default' => [
-					'url' => get_template_directory_uri() . '/assets/img/hero/video-thumbnail.png',
+					'url' => \Elementor\Utils::get_placeholder_image_src(),
 				],
 			]
 		);

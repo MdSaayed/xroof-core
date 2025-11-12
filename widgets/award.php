@@ -194,7 +194,7 @@ class Xroof_Award_Widget extends Widget_Base
                         'award_item_year' => esc_html__('//.. 2024 ..//', 'xroof'),
                         'award_item_text' => esc_html__('At XRoof, every guest is family — and our  commitment to warm, attentive service has made us a proud winner of the Customer’s Choice for Outstanding Service award. From the moment you walk through our doors to your last delicious', 'xroof'),
                         'award_item_img' => [
-                            'url' => get_template_directory_uri() . '/assets/img/award/award-1.png',
+                            'url' => \Elementor\Utils::get_placeholder_image_src(),
                         ],
                     ],
                     [
@@ -206,7 +206,7 @@ class Xroof_Award_Widget extends Widget_Base
                         'award_item_year' => esc_html__('//.. 2024 ..//', 'xroof'),
                         'award_item_text' => esc_html__('At XRoof, every guest is family — and our commitment to warm, attentive service has made us a proud winner of the Customer’s Choice for Outstanding Service award. From the moment you walk through our doors to your last delicious', 'xroof'),
                         'award_item_img' => [
-                            'url' => get_template_directory_uri() . '/assets/img/award/award-2.png',
+                             'url' => \Elementor\Utils::get_placeholder_image_src(),
                         ],
                     ],
                     [
@@ -218,7 +218,7 @@ class Xroof_Award_Widget extends Widget_Base
                         'award_item_year' => esc_html__('//.. 2024 ..//', 'xroof'),
                         'award_item_text' => esc_html__('At XRoof, every guest is family — and our commitment to warm, attentive service has made us a proud winner of the Customer’s Choice for Outstanding Service award. From the moment you walk through our doors to your last delicious', 'xroof'),
                         'award_item_img' => [
-                            'url' => get_template_directory_uri() . '/assets/img/award/award-3.png',
+                             'url' => \Elementor\Utils::get_placeholder_image_src(),
                         ],
                     ],
                     [
@@ -230,7 +230,7 @@ class Xroof_Award_Widget extends Widget_Base
                         'award_item_year' => esc_html__('//.. 2024 ..//', 'xroof'),
                         'award_item_text' => esc_html__('At XRoof, every guest is family — and our commitment to warm, attentive service has made us a proud winner of the Customer’s Choice for Outstanding Service award. From the moment you walk through our doors to your last delicious', 'xroof'),
                         'award_item_img' => [
-                            'url' => get_template_directory_uri() . '/assets/img/award/award-4.png',
+                             'url' => \Elementor\Utils::get_placeholder_image_src(),
                         ],
                     ],
                 ],

@@ -270,7 +270,7 @@ class Xroof_Services_Widget_2 extends \Elementor\Widget_Base
                 'label' => esc_html__('Background Shape Image', 'xroof'),
                 'type' => \Elementor\Controls_Manager::MEDIA,
                 'default' => [
-                    'url' => get_template_directory_uri() . '/assets/img/shape/services-2-bg.png',
+                     'url' => \Elementor\Utils::get_placeholder_image_src(),
                 ],
             ]
         );

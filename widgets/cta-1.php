@@ -350,7 +350,7 @@ class Xroof_CTA_Widget_1 extends Widget_Base
         ?>
 
         <div class="footer__cta-container container py-0">
-            <div class="footer__cta p-6 p-sm-8 px-md-10 p-xl-15 p-xx-20">
+            <div class="footer__cta p-6 p-sm-8 px-md-10 p-xl-15 p-xxl-20">
                 <?php if (!empty($settings['cta_title'])): ?>
                     <h2 class="footer__cta-title mb-6"><?php echo esc_html($settings['cta_title']); ?></h2>
                 <?php endif; ?>
